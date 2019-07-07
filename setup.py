@@ -12,5 +12,7 @@ setup(
 	keywords='avahi cname alias systemd',
 	packages=['avahi_cname_aliases'],
 	scripts=['bin/avahi-cname-aliases'],
+        data_files=[ ('/etc/systemd/system/', ['avahi-aliases.service']),
+                     ('/etc/avahi/aliases.d', ['hello.txt']) ],
 	zip_safe=False
 )
