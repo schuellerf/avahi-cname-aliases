@@ -10,23 +10,11 @@ Dependencies:
 
 ```bash
 # apt-get install -y python-avahi python-pip
-# pip install --upgrade git+https://github.com/Dalee/avahi-cname-aliases.git
+# pip install --upgrade git+https://github.com/schuellerf/avahi-cname-aliases.git
 ```
 
 ## Systemd configuration
-```
-[Unit]
-Description=Avahi Aliases stack
-Requires=avahi-daemon.service
-After=avahi-daemon.service
-
-[Service]
-ExecStart=/usr/local/bin/avahi-cname-aliases
-
-[Install]
-WantedBy=multi-user.target
-```
-
+`/etc/systemd/system/avahi-aliases.service` is installed automatically, so you only need to do:
 ```bash
 # systemctl daemon-reload
 # systemctl enable avahi-aliases
@@ -34,6 +22,7 @@ WantedBy=multi-user.target
 ```
 
 ## Set aliases
+The example `hello.txt` is installed automatically so just create other files like this or modify `/etc/avahi/aliases.d/hello.txt`
 
 ```bash
 # mkdir /etc/avahi/aliases.d
